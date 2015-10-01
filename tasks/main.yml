@@ -1,0 +1,37 @@
+---
+
+- name: Run the equivalent of apt-get update
+  apt: update_cache=yes
+
+- name: be sure ntp is installed
+  apt: name=ntp state=installed
+
+- name: be sure ntp is configured
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  notify:
+    - restart ntp
+
+- name: be sure ntp is running and enabled
+  service: name=ntp state=running enabled=yes
+
+
+
+
+- name: be sure zsh is installed
+  apt: name=zsh state=installed
+
+- name: Ensure git is installed
+  apt: name=git state=installed
+
+- name: Install oh-my-zsh
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git
+       dest=~/.oh-my-zsh
+  sudo: false
+
+- name: Ensure zsh is configured
+  template: src=zshrc.j2 dest=~{{user}}/.zshrc
+
+#commented because an error with rbenv
+#- name: switch to ZSH
+#  user: name={{user}} shell=/usr/bin/zsh
+

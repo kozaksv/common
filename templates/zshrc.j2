@@ -1,0 +1,43 @@
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+ZSH_THEME="junkfood"
+
+alias bex="bundle exec"
+alias dr="docker"
+alias gl="git pull && echo '====== git pull ======'"
+alias gp="git push && echo '====== git push ======'"
+alias commit='git add -A && git commit -m'
+alias bun="bundle install --binstubs && rbenv rehash  && echo '====== bundle && rbenv rehash ======'"
+alias reload=". ~/.zshrc && echo '====== ZSH config reloaded from ~/.zshrc ======'"
+
+
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable bi-weekly auto-update checks
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
+export UPDATE_ZSH_DAYS=30
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git rails ruby rvm docker bundler)
+
+source $ZSH/oh-my-zsh.sh
